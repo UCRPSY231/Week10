@@ -19,10 +19,10 @@ feature_labels = []
 item_labels = []
 sv_labels = []
 for i in range(data_matrix.shape[0]):
-	item_labels.append("f" + str(i+1))
+	item_labels.append("item" + str(i+1))
 for i in range(data_matrix.shape[1]):
 	sv_labels.append("sv" + str(i+1))
-	feature_labels.append("item" + str(i+1))
+	feature_labels.append("f" + str(i+1))
 
 # heatmap of the raw data
 fig0, ax0 = plt.subplots()
