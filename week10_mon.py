@@ -38,7 +38,7 @@ print(s)
 k = min(data_matrix.shape)
 
 # plot U and V (can be thought of as row and colum-wise principal components)
-fig1, axarr1 = plt.subplots(2)
+fig1, axarr1 = plt.subplots(1, 2)
 for ax, mat in zip(axarr1, [U, V]):
     ax.imshow(mat, interpolation='none')
     ax.set_yticks(np.arange(V.shape[0])+0.5, minor=False)
