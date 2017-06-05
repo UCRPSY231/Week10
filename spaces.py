@@ -16,13 +16,12 @@ data_matrix = np.array(list(csv.reader(open(data_file, "rb"), delimiter=","))).a
 
 # create some labels for the data
 feature_labels = []
-for i in range(data_matrix.shape[1]):
-	feature_labels.append("f" + str(i+1))
+item_labels = []
 sv_labels = []
 for i in range(data_matrix.shape[1]):
-	sv_labels.append("sv" + str(i+1))
-item_labels = []
+	feature_labels.append("f" + str(i+1))
 for i in range(data_matrix.shape[1]):
+	sv_labels.append("sv" + str(i+1))
 	feature_labels.append("item" + str(i+1))
 
 # heatmap of the raw data
@@ -30,8 +29,8 @@ fig0, ax0 = plt.subplots()
 ax0.pcolor(data_matrix)
 ax0.set_yticks(np.arange(data_matrix.shape[0])+0.5, minor=False)
 ax0.set_xticks(np.arange(data_matrix.shape[1])+0.5, minor=False)
-ax0.set_xticklabels(item_labels, minor=False)
-ax0.set_yticklabels(feature_labels, minor=False)
+ax0.set_xticklabels(feature_labels, minor=False)
+ax0.set_yticklabels(item_labels, minor=False)
 
 # compute the SVD
 U, s, V = np.linalg.svd(data_matrix, full_matrices=True)
