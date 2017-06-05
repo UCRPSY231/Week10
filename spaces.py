@@ -45,11 +45,12 @@ for ax, mat in zip(axarr1, [U, V]):
     ax.set_xticks(np.arange(V.shape[1])+0.5, minor=False)
     ax.set_xticklabels(sv_labels, minor=False)
     ax.set_yticklabels(sv_labels, minor=False)
-    # plot s on top of imshow 
+    # plot singular values on top of imshow (equal to square roots of the eigenvalues of covariance matrix)
     ax.plot(s)
 fig1.colorbar()
 
 # dimensionality reduction using above specified dimensions
+# eigenvectors (of covariance matrix) are given by columns in U
 fig2, ax2 = plt.subplots()
 ax2.scatter(U[:, dim1], U[:, dim2])
 ax2.set_xlabel('dim1')
