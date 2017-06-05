@@ -18,8 +18,8 @@ data_matrix = np.array(list(csv.reader(open(data_file, "rb"), delimiter=","))).a
 feature_labels = []
 item_labels = []
 sv_labels = []
-for i in range(data_matrix.shape[1]):
-	feature_labels.append("f" + str(i+1))
+for i in range(data_matrix.shape[0]):
+	item_labels.append("f" + str(i+1))
 for i in range(data_matrix.shape[1]):
 	sv_labels.append("sv" + str(i+1))
 	feature_labels.append("item" + str(i+1))
@@ -44,7 +44,6 @@ for ax, mat in zip(axarr1, [U, V]):
     ax.set_yticks(np.arange(V.shape[0])+0.5, minor=False)
     ax.set_xticks(np.arange(V.shape[1])+0.5, minor=False)
     ax.set_xticklabels(sv_labels, minor=False)
-    ax.set_yticklabels(sv_labels, minor=False)
     # plot singular values on top of imshow (equal to square roots of the eigenvalues of covariance matrix)
     ax.plot(s)
 fig1.colorbar()
