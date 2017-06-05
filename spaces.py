@@ -50,10 +50,10 @@ for ax, mat in zip(axarr1, [U, V]):
 fig1.colorbar()
 
 # dimensionality reduction using above specified dimensions
-fig3, ax3 = plt.subplots()
-ax3.scatter(U[:, dim1], U[:, dim2])
-ax3.set_xlabel('dim1')
-ax3.set_ylabel('dim2')
+fig2, ax2 = plt.subplots()
+ax2.scatter(U[:, dim1], U[:, dim2])
+ax2.set_xlabel('dim1')
+ax2.set_ylabel('dim2')
 
 # plot the cluster diagram
 data_dist = pdist(data_matrix) # computing the distance
