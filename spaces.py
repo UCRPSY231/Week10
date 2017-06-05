@@ -36,13 +36,15 @@ ax0.set_yticklabels(item_labels, minor=False)
 U, s, V = np.linalg.svd(data_matrix, full_matrices=True)
 print s
 
-# plot V
-fig1, ax1 = plt.subplots()
-ax1.pcolor(V)
-ax1.set_yticks(np.arange(V.shape[0])+0.5, minor=False)
-ax1.set_xticks(np.arange(V.shape[1])+0.5, minor=False)
-ax1.set_xticklabels(sv_labels, minor=False)
-ax1.set_yticklabels(sv_labels, minor=False)
+# plot U and V
+fig1, axarr1 = plt.subplots(1,2)
+for ax, mat in zip(axarr1, [U, V]):
+    ax.pcolor(mat)
+    ax.set_yticks(np.arange(V.shape[0])+0.5, minor=False)
+    ax.set_xticks(np.arange(V.shape[1])+0.5, minor=False)
+    ax.set_xticklabels(sv_labels, minor=False)
+    ax.set_yticklabels(sv_labels, minor=False)
+
 
 # plot s
 fig2, ax2 = plt.subplots()
