@@ -30,7 +30,6 @@ ax0.imshow(data_matrix, interpolation='none')
 ax0.set_yticks(np.arange(data_matrix.shape[0])+0.5, minor=False)
 ax0.set_xticks(np.arange(data_matrix.shape[1])+0.5, minor=False)
 ax0.set_xticklabels(feature_labels, minor=False)
-plt.colorbar()
 
 # compute the SVD
 U, s, V = np.linalg.svd(data_matrix)
@@ -46,7 +45,6 @@ for ax, mat in zip(axarr1, [U, V]):
     ax.set_xticks(np.arange(V.shape[1])+0.5, minor=False)
     # plot singular values on top of imshow (equal to square roots of the eigenvalues of covariance matrix)
     ax.plot(s)
-plt.colorbar()
 
 # dimensionality reduction using above specified dimensions
 # eigenvectors (of covariance matrix) are given by columns in U
