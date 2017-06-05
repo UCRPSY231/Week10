@@ -37,7 +37,7 @@ fig0.colorbar()
 U, s, V = np.linalg.svd(data_matrix, full_matrices=True)
 print s
 
-# plot U and V
+# plot U and V (can be thought of as row and colum-wise principal components)
 fig1, axarr1 = plt.subplots(2)
 for ax, mat in zip(axarr1, [U, V]):
     ax.imshow(mat)
@@ -45,14 +45,11 @@ for ax, mat in zip(axarr1, [U, V]):
     ax.set_xticks(np.arange(V.shape[1])+0.5, minor=False)
     ax.set_xticklabels(sv_labels, minor=False)
     ax.set_yticklabels(sv_labels, minor=False)
+    # plot s on top of imshow 
+    ax.plot(s)
 fig1.colorbar()
 
-
-# plot s
-fig2, ax2 = plt.subplots()
-ax2.plot(s)
-
-# plot U in terms of the specified dimensions
+# dimensionality reduction using above specified dimensions
 fig3, ax3 = plt.subplots()
 ax3.scatter(U[:, dim1], U[:, dim2])
 ax3.set_xlabel('dim1')
