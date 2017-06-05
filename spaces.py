@@ -37,7 +37,7 @@ U, s, V = np.linalg.svd(data_matrix, full_matrices=True)
 print s
 
 # plot U and V
-fig1, axarr1 = plt.subplots(1,2)
+fig1, axarr1 = plt.subplots(2)
 for ax, mat in zip(axarr1, [U, V]):
     ax.pcolor(mat)
     ax.set_yticks(np.arange(V.shape[0])+0.5, minor=False)
