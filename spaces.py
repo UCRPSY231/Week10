@@ -44,11 +44,11 @@ ax1.set_xticks(np.arange(V.shape[1])+0.5, minor=False)
 ax1.set_xticklabels(sv_labels, minor=False)
 ax1.set_yticklabels(sv_labels, minor=False)
 
-# plot the singular values
+# plot s
 fig2, ax2 = plt.subplots()
 ax2.plot(s)
 
-# plot the decomposed data in terms of the specified dimensions
+# plot U in terms of the specified dimensions
 fig3, ax3 = plt.subplots()
 ax3.scatter(U[:, dim1], U[:, dim2])
 ax3.set_xlabel('dim1')
