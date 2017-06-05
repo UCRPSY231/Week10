@@ -12,7 +12,7 @@ dim1 = 0	# what SV dimensions to plot
 dim2 = 1
 
 # read data into a numpy matrix
-data_matrix = np.array(list(csv.reader(open(data_file, "rb"), delimiter=","))).astype("float")
+data_matrix = np.array(list(csv.reader(open(data_file, "r"), delimiter=","))).astype("float")
 
 # create some labels for the data
 feature_labels = []
