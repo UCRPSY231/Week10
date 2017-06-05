@@ -26,7 +26,7 @@ for i in range(data_matrix.shape[1]):
 
 # heatmap of the raw data
 fig0, ax0 = plt.subplots()
-ax0.imshow(data_matrix)
+ax0.imshow(data_matrix, interpolate='none')
 ax0.set_yticks(np.arange(data_matrix.shape[0])+0.5, minor=False)
 ax0.set_xticks(np.arange(data_matrix.shape[1])+0.5, minor=False)
 ax0.set_xticklabels(feature_labels, minor=False)
