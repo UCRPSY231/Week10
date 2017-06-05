@@ -34,7 +34,7 @@ plt.colorbar()
 
 # compute the SVD
 U, s, V = np.linalg.svd(data_matrix)
-print s
+print(s)
 
 k = min(data_matrix.shape)
 
