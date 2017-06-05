@@ -30,23 +30,23 @@ ax0.imshow(data_matrix)
 ax0.set_yticks(np.arange(data_matrix.shape[0])+0.5, minor=False)
 ax0.set_xticks(np.arange(data_matrix.shape[1])+0.5, minor=False)
 ax0.set_xticklabels(feature_labels, minor=False)
-ax0.set_yticklabels(item_labels, minor=False)
-fig0.colorbar()
+plt.colorbar()
 
 # compute the SVD
-U, s, V = np.linalg.svd(data_matrix, full_matrices=True)
+U, s, V = np.linalg.svd(data_matrix)
 print s
+
+k = min(data_matrix.shape)
 
 # plot U and V (can be thought of as row and colum-wise principal components)
 fig1, axarr1 = plt.subplots(2)
 for ax, mat in zip(axarr1, [U, V]):
-    ax.imshow(mat)
+    ax.imshow(mat, interpolate='none')
     ax.set_yticks(np.arange(V.shape[0])+0.5, minor=False)
     ax.set_xticks(np.arange(V.shape[1])+0.5, minor=False)
-    ax.set_xticklabels(sv_labels, minor=False)
     # plot singular values on top of imshow (equal to square roots of the eigenvalues of covariance matrix)
     ax.plot(s)
-fig1.colorbar()
+plt.colorbar()
 
 # dimensionality reduction using above specified dimensions
 # eigenvectors (of covariance matrix) are given by columns in U
